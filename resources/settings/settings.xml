@@ -1,0 +1,43 @@
+<settings>
+
+    <setting propertyKey="@Properties.AppVersion" title="@Strings.AppVersionTitle">
+        <settingConfig type="alphaNumeric" readonly="true" />
+    </setting>
+    
+    <setting propertyKey="@Properties.Theme" title="@Strings.ThemeTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.ThemeBlueDark</listEntry>
+            <listEntry value="1">@Strings.ThemeGreenDark</listEntry>
+            <listEntry value="2">@Strings.ThemeRedDark</listEntry>
+            
+        </settingConfig>
+    </setting>
+    
+    <setting propertyKey="@Properties.BatteryLevelLow" title="@Strings.BatteryLevelLow">
+        <settingConfig type="numeric" min="10" max="90" required="true" />
+    </setting>
+    
+    <setting propertyKey="@Properties.ShowBatteryPercent" title="@Strings.ShowBatteryPercent">
+        <settingConfig type="boolean" />
+    </setting>
+    
+    <setting propertyKey="@Properties.ShowMonthDate" title="@Strings.ShowMonthDate">
+        <settingConfig type="boolean" />
+    </setting>
+    
+    <setting propertyKey="@Properties.ShowDayDate" title="@Strings.ShowDayDate">
+        <settingConfig type="boolean" />
+    </setting>
+    
+    <setting propertyKey="@Properties.ShowHeartRate" title="@Strings.ShowHeartRate">
+        <settingConfig type="boolean" />
+    </setting>
+    
+     <setting propertyKey="@Properties.ActiveAperoTime" title="@Strings.ActiveAperoTime">
+        <settingConfig type="boolean" />
+    </setting>
+    
+     <setting propertyKey="@Properties.FTWMode" title="@Strings.FTWMode">
+        <settingConfig type="boolean" />
+    </setting>
+</settings>

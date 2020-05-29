@@ -1,0 +1,42 @@
+<strings>
+    <string id="AppName">FTW</string>
+    <string id="AppNameTitle">F*** The World</string>
+    <string id="AppVersionTitle">App Version</string>
+    
+    <string id="ThemeTitle">Theme</string>
+    <string id="ThemeBlueDark">Blue (Dark)</string>
+    <string id="ThemeRedDark">Red (Dark)</string>
+    <string id="ThemeGreenDark">Green (Dark)</string>
+    
+    <string id="BatteryLevelLow">Battery Level Low</string>
+    <string id="ShowBatteryPercent">Show Battery Percent</string>
+    
+    <string id="ShowMonthDate">Show Month Date</string>
+    <string id="ShowDayDate">Show Day Date</string>
+    
+    <string id="ShowHeartRate">Show Heart Rate</string>
+    
+    <string id="ActiveAperoTime">Never Miss Apero Time</string>
+    <string id="FTWMode">FTW Mode</string>
+    
+    <string id="Sun">Sun</string>
+    <string id="Mon">Mon</string>
+    <string id="Tue">Tue</string>
+    <string id="Wed">Wed</string>
+    <string id="Thu">Thu</string>
+    <string id="Fri">Fri</string>
+    <string id="Sat">Sat</string>
+    
+    <string id="Jan">Jan</string>
+    <string id="Feb">Feb</string>
+    <string id="Mar">Mar</string>
+    <string id="Apr">Apr</string>
+    <string id="May">May</string>
+    <string id="Jun">Jun</string>
+    <string id="Jul">Jul</string>
+    <string id="Aug">Aug</string>
+    <string id="Sep">Sep</string>
+    <string id="Oct">Oct</string>
+    <string id="Nov">Nov</string>
+    <string id="Dec">Dec</string>
+</strings>

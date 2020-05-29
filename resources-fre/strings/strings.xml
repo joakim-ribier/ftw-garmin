@@ -1,0 +1,35 @@
+<strings>
+    <string id="ThemeTitle">Thème</string>
+    <string id="ThemeBlueDark">Blue (Dark)</string>
+    <string id="ThemeRedDark">Red (Dark)</string>
+    <string id="ThemeGreenDark">Green (Dark)</string>
+    
+    <string id="BatteryLevelLow">Définir le niveau de batterie faible</string>
+    <string id="ShowBatteryPercent">Afficher le pourcentage de batterie</string>
+    
+    <string id="ShowMonthDate">Afficher le mois courant</string>
+    <string id="ShowDayDate">Afficher le jour courant</string>
+    
+    <string id="ShowHeartRate">Afficher le cardio (bpm)</string>
+    
+    <string id="Sun">Dim</string>
+    <string id="Mon">Lun</string>
+    <string id="Tue">Mar</string>
+    <string id="Wed">Mer</string>
+    <string id="Thu">Jeu</string>
+    <string id="Fri">Ven</string>
+    <string id="Sat">Sam</string>
+
+    <string id="Jan">Jan</string>
+    <string id="Feb">Fev</string>
+    <string id="Mar">Mar</string>
+    <string id="Apr">Avr</string>
+    <string id="May">Mai</string>
+    <string id="Jun">Jui</string>
+    <string id="Jul">Jui</string>
+    <string id="Aug">Aou</string>
+    <string id="Sep">Sep</string>
+    <string id="Oct">Oct</string>
+    <string id="Nov">Nov</string>
+    <string id="Dec">Dec</string>
+</strings>

@@ -1,0 +1,16 @@
+<properties>
+    <property id="AppVersion" type="string">0.1.0</property>
+    
+    <property id="Theme" type="number">2</property>
+    
+    <property id="BatteryLevelLow" type="number">35</property>
+    <property id="ShowBatteryPercent" type="boolean">true</property>
+    
+    <property id="ShowMonthDate" type="boolean">true</property>
+    <property id="ShowDayDate" type="boolean">true</property>
+    
+    <property id="ShowHeartRate" type="boolean">true</property>
+    
+    <property id="ActiveAperoTime" type="boolean">true</property>
+    <property id="FTWMode" type="boolean">false</property>
+</properties>

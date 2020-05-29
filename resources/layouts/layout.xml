@@ -1,0 +1,17 @@
+<resources>
+    <layout id="WatchFace">
+        <drawable id="Background" class="Background" />
+    
+        <drawable id="BatteryBackground" class="BatteryBackground" />
+    
+        <drawable id="TimeArea" class="TimeArea" />
+    
+        <drawable id="HeartBackground" class="HeartBackground" />
+    
+        <drawable id="ActivityBackground" class="ActivityBackground" />
+    </layout>
+    
+    <layout id="FTW">
+        <drawable id="FTWBackground" class="FTWBackground" />
+    </layout>
+</resources>

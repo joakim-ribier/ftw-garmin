@@ -1,0 +1,6 @@
+<resources>
+    <bitmaps>
+        <bitmap id="ftw" filename="images/ftw.png"/>
+        <bitmap id="apero" filename="images/aperotime.png"/>
+    </bitmaps>
+</resources>
