@@ -1,17 +1,4 @@
 <strings>
-    <string id="ThemeTitle">Thème</string>
-    <string id="ThemeBlueDark">Blue (Dark)</string>
-    <string id="ThemeRedDark">Red (Dark)</string>
-    <string id="ThemeGreenDark">Green (Dark)</string>
-    
-    <string id="BatteryLevelLow">Définir le niveau de batterie faible</string>
-    <string id="ShowBatteryPercent">Afficher le pourcentage de batterie</string>
-    
-    <string id="ShowMonthDate">Afficher le mois courant</string>
-    <string id="ShowDayDate">Afficher le jour courant</string>
-    
-    <string id="ShowHeartRate">Afficher le cardio (bpm)</string>
-    
     <string id="Sun">Dim</string>
     <string id="Mon">Lun</string>
     <string id="Tue">Mar</string>
@@ -32,4 +19,24 @@
     <string id="Oct">Oct</string>
     <string id="Nov">Nov</string>
     <string id="Dec">Dec</string>
+    
+    <!-- keys for settings -->
+    <string id="ThemeTitle">Thème</string>
+    <string id="ThemeBlueDark">Blue (Dark)</string>
+    <string id="ThemeRedDark">Red (Dark)</string>
+    <string id="ThemeGreenDark">Green (Dark)</string>
+    
+    <string id="BatteryLevelLow">Définir le niveau de batterie faible</string>
+    <string id="ShowBatteryPercent">Afficher le pourcentage de batterie</string>
+    
+    <string id="ShowMonthDate">Afficher le mois courant</string>
+    <string id="ShowDayDate">Afficher le jour courant</string>
+    
+    <string id="ShowHeartRate">Afficher le cardio (bpm)</string>
+    
+    <string id="FTWMode">Activer le mode FTW / Ne ratez plus l'heure de l'apéro...</string>
+    <string id="FTWModeMorningHour">FTW : Heure du matin</string>
+    <string id="FTWModeAfternoonHour">FTW : Heure de l'après-midi</string>
+    <string id="FTWModeMinutes">FTW : Minutes</string>
+    <string id="FTWModeDuration">FTW : Durée (s)</string>
 </strings>

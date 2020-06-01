@@ -26,12 +26,15 @@ var showMonthDate = true;
 var showDayDate = true;
 var showHeartRate = true;
 var showBatteryPercent = true;
-var isFTWMode = false;
+var FTWMode = true;
+var FTWModeMorningHour = 12;
+var FTWModeAfternoonHour = 18;
+var FTWModeMinutes = 15;
+var FTWModeDuration = 15;
 
 class FTWView extends UI.WatchFace {
 
-    private var activeAperoTime = true;
-    private var isAperoTimeLayoutLoaded = false;
+    private var isFTWModeLayoutLoaded = false;
     private var isWatchFaceLayoutLoaded = true;
     
     private var themeColors = [
@@ -73,10 +76,10 @@ class FTWView extends UI.WatchFace {
     function onUpdate(dc) {
         System.println("FTWView.onUpdate");
         
-        if (!istItAperoTime(dc) && !isWatchFaceLayoutLoaded) {
+        if (!isFTWMode(dc) && !isWatchFaceLayoutLoaded) {
             setLayout(Rez.Layouts.WatchFace(dc));
             isWatchFaceLayoutLoaded = true;
-            isAperoTimeLayoutLoaded = false;
+            isFTWModeLayoutLoaded = false;
         }
         
         if ($.hoursFontDescent == null || $.hoursFontAscent == null) {
@@ -86,20 +89,23 @@ class FTWView extends UI.WatchFace {
         
         updateClockTime(dc); 
         
+        //setLayout(Rez.Layouts.FTW(dc));
+        
         View.onUpdate(dc);
     }
     
-    private function istItAperoTime(dc) {
-        if (!activeAperoTime) {
+    private function isFTWMode(dc) {
+        if (!FTWMode) {
             return false;
         }
         
         var clockTime = System.getClockTime();
-        if ((clockTime.hour == 12 || clockTime.hour == 18) &&
-            clockTime.min == 15 && clockTime.sec < 15) {
-            if (!isAperoTimeLayoutLoaded) {
+        
+        if ((clockTime.hour == FTWModeMorningHour || clockTime.hour == FTWModeAfternoonHour) &&
+            clockTime.min == FTWModeMinutes && clockTime.sec < FTWModeDuration) {
+            if (!isFTWModeLayoutLoaded) {
                 setLayout(Rez.Layouts.FTW(dc));
-                isAperoTimeLayoutLoaded = true;
+                isFTWModeLayoutLoaded = true;
                 isWatchFaceLayoutLoaded = false;
             }
             return true;
@@ -122,8 +128,11 @@ class FTWView extends UI.WatchFace {
     function onSettingsChanged() {
         System.println("FTWView.onSettingsChanged");
         
-        activeAperoTime = AP.getApp().getProperty("ActiveAperoTime");
-        isFTWMode = AP.getApp().getProperty("FTWMode");
+        FTWMode = AP.getApp().getProperty("FTWMode");
+        FTWModeMorningHour = AP.getApp().getProperty("FTWModeMorningHour");
+        FTWModeAfternoonHour = AP.getApp().getProperty("FTWModeAfternoonHour");
+        FTWModeMinutes = AP.getApp().getProperty("FTWModeMinutes");
+        FTWModeDuration = AP.getApp().getProperty("FTWModeDuration");
         
         updateBatterySettings();
         updateThemeSettings();

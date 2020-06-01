@@ -33,11 +33,23 @@
         <settingConfig type="boolean" />
     </setting>
     
-     <setting propertyKey="@Properties.ActiveAperoTime" title="@Strings.ActiveAperoTime">
+    <setting propertyKey="@Properties.FTWMode" title="@Strings.FTWMode">
         <settingConfig type="boolean" />
     </setting>
     
-     <setting propertyKey="@Properties.FTWMode" title="@Strings.FTWMode">
-        <settingConfig type="boolean" />
+    <setting propertyKey="@Properties.FTWModeMorningHour" title="@Strings.FTWModeMorningHour">
+        <settingConfig type="numeric" min="0" max="23" required="true" />
+    </setting>
+    
+    <setting propertyKey="@Properties.FTWModeAfternoonHour" title="@Strings.FTWModeAfternoonHour">
+        <settingConfig type="numeric" min="0" max="23" required="true" />
+    </setting>
+    
+    <setting propertyKey="@Properties.FTWModeMinutes" title="@Strings.FTWModeMinutes">
+        <settingConfig type="numeric" min="0" max="59" required="true" />
+    </setting>
+    
+    <setting propertyKey="@Properties.FTWModeDuration" title="@Strings.FTWModeDuration">
+        <settingConfig type="numeric" min="5" max="45" required="true" />
     </setting>
 </settings>

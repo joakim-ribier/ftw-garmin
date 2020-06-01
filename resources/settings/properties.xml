@@ -11,6 +11,9 @@
     
     <property id="ShowHeartRate" type="boolean">true</property>
     
-    <property id="ActiveAperoTime" type="boolean">true</property>
-    <property id="FTWMode" type="boolean">false</property>
+    <property id="FTWMode" type="boolean">true</property>
+    <property id="FTWModeMorningHour" type="number">12</property>
+    <property id="FTWModeAfternoonHour" type="number">18</property>
+    <property id="FTWModeMinutes" type="number">15</property>
+    <property id="FTWModeDuration" type="number">15</property>
 </properties>

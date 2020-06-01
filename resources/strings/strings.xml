@@ -3,21 +3,9 @@
     <string id="AppNameTitle">F*** The World</string>
     <string id="AppVersionTitle">App Version</string>
     
-    <string id="ThemeTitle">Theme</string>
-    <string id="ThemeBlueDark">Blue (Dark)</string>
-    <string id="ThemeRedDark">Red (Dark)</string>
-    <string id="ThemeGreenDark">Green (Dark)</string>
-    
-    <string id="BatteryLevelLow">Battery Level Low</string>
-    <string id="ShowBatteryPercent">Show Battery Percent</string>
-    
-    <string id="ShowMonthDate">Show Month Date</string>
-    <string id="ShowDayDate">Show Day Date</string>
-    
-    <string id="ShowHeartRate">Show Heart Rate</string>
-    
-    <string id="ActiveAperoTime">Never Miss Apero Time</string>
-    <string id="FTWMode">FTW Mode</string>
+    <string id="FTW_1">IT'S</string>
+    <string id="FTW_2">APERO</string>
+    <string id="FTW_3">TIME</string>
     
     <string id="Sun">Sun</string>
     <string id="Mon">Mon</string>
@@ -39,4 +27,24 @@
     <string id="Oct">Oct</string>
     <string id="Nov">Nov</string>
     <string id="Dec">Dec</string>
+    
+    <!-- keys for settings -->
+    <string id="ThemeTitle">Theme</string>
+    <string id="ThemeBlueDark">Blue (Dark)</string>
+    <string id="ThemeRedDark">Red (Dark)</string>
+    <string id="ThemeGreenDark">Green (Dark)</string>
+    
+    <string id="BatteryLevelLow">Battery Level Low</string>
+    <string id="ShowBatteryPercent">Show Battery Percent</string>
+    
+    <string id="ShowMonthDate">Show Month Date</string>
+    <string id="ShowDayDate">Show Day Date</string>
+    
+    <string id="ShowHeartRate">Show Heart Rate</string>
+    
+    <string id="FTWMode">Enable FTW Mode / Never Miss Apero Time...</string>
+    <string id="FTWModeMorningHour">FTW: Morning Hour</string>
+    <string id="FTWModeAfternoonHour">FTW: Afternoon Hour</string>
+    <string id="FTWModeMinutes">FTW: Minutes</string>
+    <string id="FTWModeDuration">FTW: Duration (s)</string>
 </strings>
