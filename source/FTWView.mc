@@ -87,7 +87,6 @@ class FTWView extends UI.WatchFace {
             if ($.timeAreaDrawable != null) {
                 timeAreaDrawable.onPartialUpdate(dc);
             }
-        
             if ($.heartBackgroundDrawable != null) {
                 heartBackgroundDrawable.onPartialUpdate(dc);
             }
@@ -99,7 +98,8 @@ class FTWView extends UI.WatchFace {
     // Update the view
     function onUpdate(dc) {
         System.println("FTWView.onUpdate");
-        
+        dc.clearClip();
+         
         updateFTWModeView(dc, false);
         
         if ($.hoursFontDescent == null || $.hoursFontAscent == null) {
