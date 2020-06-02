@@ -29,6 +29,14 @@ Liste exhaustive des possibilités :
 
 ## Version
 
+0.1.3
+
+* Correction d'un bug sur l'affichage des secondes
+
+0.1.2
+
+* Mise à jour partielle (secondes; bpm) chaque minute
+
 0.1.1
 
 * Mise à jour de la vue "mode FTW"
