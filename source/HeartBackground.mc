@@ -8,9 +8,15 @@ class HeartBackground extends UI.Drawable {
     private var textColor = $.TEXT_COLOR;
     
     private var heartRateTextFont = smallFont;
+    private var heartRateTextFontDim;
+    
+    private var yOffsetText = 24;
+    private var locY;
     
     function initialize(params) {
         Drawable.initialize(params);
+        
+         $.heartBackgroundDrawable = self;
     }
     
     function draw(dc) {
@@ -20,43 +26,19 @@ class HeartBackground extends UI.Drawable {
             return;
         }
         
-        var heartRate = AC.getActivityInfo().currentHeartRate;
-        
-        /*var hrIterator = ActivityMonitor.getHeartRateHistory(null, false);
-        if (hrIterator != null && heartRate == null) {
-            var previous = hrIterator.next();
-            if (previous != null) {
-                heartRate =	previous.heartRate;
-            }
-        }*/
-        
-        var heartRateText = "N/A";
-        if (heartRate != null) {
-            heartRateText = heartRate.toString();
-        }
-        
-        var heartRateTextFontDim = dc.getTextDimensions(heartRateText, heartRateTextFont);
+        var heartRateText = getHeartValueText(dc);
         
         var width = dc.getWidth() / 2;
         var height = dc.getHeight();
-        var yOffsetText = 24;
-        
+       
         var locX = width;
-        var locY = height - ((height - ((height / 2) + ($.minutesDim[1] / 2) + ((heartRateTextFontDim[1] + yOffsetText) / 2))) / 2);
+        locY = height - ((height - ((height / 2) + ($.minutesDim[1] / 2) + ((heartRateTextFontDim[1] + yOffsetText) / 2))) / 2);
         if ($.hoursFontAscent > 0 && $.hoursFontDescent > 0) {
             // for font with too margin
             locY = locY - 10;
         }
         
-        // display heart rate text
-        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(
-            locX,
-            locY - yOffsetText,
-            heartRateTextFont,
-            heartRateText,
-            textCenter
-        );
+        drawHeartText(dc, locX, locY, heartRateText);
         
         // display heart rate curve
         var heartRateSize = 50;
@@ -64,6 +46,61 @@ class HeartBackground extends UI.Drawable {
         
         dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
         drawHeartRate(dc, locX, locY, locX + 15);
+    }
+    
+    // Partial update called every second by FTWView.onPartialUpdate(dc).
+    function onPartialUpdate(dc) {
+        var clockTime = System.getClockTime();
+        
+        if (clockTime.sec == 0 || clockTime.sec == 30) {
+            System.println("HeartBackground.onPartialUpdate");
+
+            // add clip to clear only the heart rate text drawable part
+            dc.clearClip();
+            dc.setClip(
+                (dc.getWidth() / 2) - (heartRateTextFontDim[0] / 2), 
+                (locY - yOffsetText) - (heartRateTextFontDim[1] / 2),
+                heartRateTextFontDim[0],
+                heartRateTextFontDim[1]);
+            
+            // clean the content of the clip area
+            dc.clear();
+            
+            var heartRateText = getHeartValueText(dc);
+            drawHeartText(dc, dc.getWidth() / 2, locY, heartRateText);
+        }
+    }
+    
+    private function drawHeartText(dc, locX, locY, value) {
+        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(
+            locX,
+            locY - yOffsetText,
+            heartRateTextFont,
+            value,
+            textCenter
+        );
+    }
+    private function getHeartValueText(dc) {
+        var heartRate = AC.getActivityInfo().currentHeartRate;
+        
+        /*var hrIterator = ActivityMonitor.getHeartRateHistory(null, false);
+        if (hrIterator != null && heartRate == null) {
+            var previous = hrIterator.next();
+            if (previous != null) {
+                heartRate = previous.heartRate;
+            }
+        }*/
+        
+        var value = "N/A";
+        if (heartRate != null) {
+            value = heartRate.toString();
+        }
+        
+        // save the current text dimensions
+        heartRateTextFontDim = dc.getTextDimensions(value, heartRateTextFont);
+        
+        return value;
     }
     
     private function drawHeartRate(dc, locX, locY, locXPlusOffset) {

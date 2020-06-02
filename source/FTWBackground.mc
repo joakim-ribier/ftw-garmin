@@ -19,6 +19,8 @@ class FTWBackground extends UI.Drawable {
         ftwText1 = UI.loadResource(Rez.Strings.FTW_1);
         ftwText2 = UI.loadResource(Rez.Strings.FTW_2);
         ftwText3 = UI.loadResource(Rez.Strings.FTW_3);
+        
+        $.FTWBackgroundDrawable = self;
     }
     
     function draw(dc) {

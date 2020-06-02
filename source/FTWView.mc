@@ -32,6 +32,11 @@ var FTWModeAfternoonHour = 18;
 var FTWModeMinutes = 15;
 var FTWModeDuration = 15;
 
+// components drawalbes instances
+var timeAreaDrawable = null;
+var heartBackgroundDrawable = null;
+var FTWBackgroundDrawable = null;
+
 class FTWView extends UI.WatchFace {
 
     private var isFTWModeLayoutLoaded = false;
@@ -72,15 +77,30 @@ class FTWView extends UI.WatchFace {
     // loading resources into memory.
     function onShow() { }
     
+    // Update "seconds"
+    function onPartialUpdate(dc) {
+        System.println("FTWView.onPartialUpdate");
+        
+        updateClockTime(dc);
+        
+        if (isWatchFaceLayoutLoaded) {
+            if ($.timeAreaDrawable != null) {
+                timeAreaDrawable.onPartialUpdate(dc);
+            }
+        
+            if ($.heartBackgroundDrawable != null) {
+                heartBackgroundDrawable.onPartialUpdate(dc);
+            }
+        }
+        
+        updateFTWModeView(dc, true);
+    }
+    
     // Update the view
     function onUpdate(dc) {
         System.println("FTWView.onUpdate");
         
-        if (!isFTWMode(dc) && !isWatchFaceLayoutLoaded) {
-            setLayout(Rez.Layouts.WatchFace(dc));
-            isWatchFaceLayoutLoaded = true;
-            isFTWModeLayoutLoaded = false;
-        }
+        updateFTWModeView(dc, false);
         
         if ($.hoursFontDescent == null || $.hoursFontAscent == null) {
             $.hoursFontDescent = dc.getFontDescent($.hoursFont);
@@ -89,28 +109,55 @@ class FTWView extends UI.WatchFace {
         
         updateClockTime(dc); 
         
-        //setLayout(Rez.Layouts.FTW(dc));
-        
         View.onUpdate(dc);
     }
     
-    private function isFTWMode(dc) {
+    private function updateFTWModeView(dc, isPartialUpdate) {
+         if (isFTWMode()) {
+            if (!isFTWModeLayoutLoaded) {
+                System.println("FTWView.setLayout(Rez.Layouts.FTW(dc))");
+            
+                isFTWModeLayoutLoaded = true;
+                isWatchFaceLayoutLoaded = false;
+                
+                // clean the drawable view
+                dc.clearClip();
+                dc.clear();
+                
+                // set new layout
+                setLayout(Rez.Layouts.FTW(dc));
+                
+                // draw if partial update
+                if (isPartialUpdate) {
+                    $.FTWBackgroundDrawable.draw(dc);
+                }
+            }
+         } else {
+            if (!isWatchFaceLayoutLoaded) {
+                System.println("FTWView.setLayout(Rez.Layouts.WatchFace(dc))");
+            
+                isWatchFaceLayoutLoaded = true;
+                isFTWModeLayoutLoaded = false;
+                
+                dc.clearClip();
+                dc.clear();
+                
+                setLayout(Rez.Layouts.WatchFace(dc));
+                
+                View.onUpdate(dc);
+            }
+         }
+    }
+    
+    private function isFTWMode() {
         if (!FTWMode) {
             return false;
         }
-        
         var clockTime = System.getClockTime();
-        
-        if ((clockTime.hour == FTWModeMorningHour || clockTime.hour == FTWModeAfternoonHour) &&
-            clockTime.min == FTWModeMinutes && clockTime.sec < FTWModeDuration) {
-            if (!isFTWModeLayoutLoaded) {
-                setLayout(Rez.Layouts.FTW(dc));
-                isFTWModeLayoutLoaded = true;
-                isWatchFaceLayoutLoaded = false;
-            }
-            return true;
-        }
-        return false;
+        return (
+            (clockTime.hour == FTWModeMorningHour || clockTime.hour == FTWModeAfternoonHour) 
+            && clockTime.min == FTWModeMinutes && clockTime.sec < FTWModeDuration
+         );
     }
     
     private function updateClockTime(dc) {
@@ -184,8 +231,12 @@ class FTWView extends UI.WatchFace {
     function onHide() { }
     
     // The user has just looked at their watch. Timers and animations may be started here.
-    function onExitSleep() { }
+    function onExitSleep() { 
+        System.println("FTWView.onExitSleep");
+    }
     
     // Terminate any active timers and prepare for slow updates.
-    function onEnterSleep() { }
+    function onEnterSleep() { 
+        System.println("FTWView.onEnterSleep");
+    }
 }

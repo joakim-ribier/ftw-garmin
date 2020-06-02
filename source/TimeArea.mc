@@ -6,6 +6,9 @@ class TimeArea extends UI.Drawable {
     private var textCenter = $.TEXT_CENTER;
     private var textColor = $.TEXT_COLOR;
     
+    private var hoursLocY, secondsLocX, secondsLocY;
+    private var secondsTextFontDim;
+    
     // load resource only one time
     private var months = { 
         1  => loadResource(Rez.Strings.Jan),
@@ -34,6 +37,8 @@ class TimeArea extends UI.Drawable {
     
     function initialize(params) {
         Drawable.initialize(params);
+        
+        $.timeAreaDrawable = self;
     }
     
     function draw(dc) {
@@ -43,7 +48,7 @@ class TimeArea extends UI.Drawable {
         var halfOfHeight = dc.getHeight() / 2;
         
         var hoursLocX = ((halfOfWidth - ($.minutesDim[0] / 2)) / 2);
-        var hoursLocY = halfOfHeight;
+        hoursLocY = halfOfHeight;
         
         drawHours(dc, hoursLocX, hoursLocY);
         drawColons(dc, halfOfWidth, halfOfHeight, hoursLocX);
@@ -54,6 +59,22 @@ class TimeArea extends UI.Drawable {
         if ($.showDayDate || $.showMonthDate) {
             drawDate(dc, hoursLocX, hoursLocY);
         }
+    }
+    
+    // Partial update called every second by FTWView.onPartialUpdate(dc).
+    function onPartialUpdate(dc) {
+        System.println("TimeArea.onPartialUpdate");
+        
+        dc.clearClip();
+        dc.setClip(
+            secondsLocX - (secondsTextFontDim[0] / 2),
+            secondsLocY - ((secondsTextFontDim[1] / 2) - 1),
+            secondsTextFontDim[0],
+            secondsTextFontDim[1]);
+            
+        dc.clear();
+        
+        drawSeconds(dc, dc.getWidth() / 2, hoursLocY);
     }
     
     private function drawDate(dc, x, y) {
@@ -121,9 +142,15 @@ class TimeArea extends UI.Drawable {
     
     private function drawSeconds(dc, x, y) {
         dc.setColor(textColor, Graphics.COLOR_BLACK);
+        
+        secondsTextFontDim = dc.getTextDimensions($.seconds + " ", $.secondsFont);
+        
+        secondsLocX = x + ($.minutesDim[0] / 2) + secondsTextFontDim[0];
+        secondsLocY = y - ($.hoursDim[1] / 2);
+        
         dc.drawText(
-            x + ($.minutesDim[0] / 2) + $.secondsDim[0],
-            y - ($.hoursDim[1] / 2),
+            secondsLocX,
+            secondsLocY,
             $.secondsFont,
             $.seconds + " ",
             textCenter

@@ -8,6 +8,7 @@ https://developer.garmin.com/connect-iq/overview/
 ## TOC
 
 * [Projet](#projet)
+* [Version](#version)
 
 ## Projet
 
@@ -24,7 +25,25 @@ Liste exhaustive des possibilités :
 * Cacher/Afficher le mois courant
 * Cacher/Afficher le pourcentage de batterie restant
 * Cacher/Afficher le cardio
-* Afficher la vue "APERO TIME" lorsque c'est l'heure de prendre l'apéritif (pas encore configurable, 12h15 / 18h15) `¯\_(ツ)_/¯`
+* Passer en mode FTW ("APERO TIME") `¯\_(ツ)_/¯`
+
+## Version
+
+0.1.1
+
+* Mise à jour de la vue "mode FTW"
+* Possibilité de configurer les horaires d'apérooo (matin / après-midi)
+
+0.1.0
+
+Première version du cadran.
+
+* Changer la couleur du thème (bleu, rouge, vert)
+* Cacher / Afficher le jour courant
+* Cacher / Afficher le mois courant
+* Cacher / Afficher le pourcentage de batterie restant
+* Cacher / Afficher le cardio
+* Afficher la vue "APERO TIME"
 * Passer en mode FTW !
 
 [haut](#toc)
