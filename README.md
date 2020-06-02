@@ -3,7 +3,7 @@ FTW - Watch Faces for Garmin
 
 https://developer.garmin.com/connect-iq/overview/
 
-![IMAGE](resources/images/screenshots/ftw01_fr.png)
+![IMAGE](resources/images/screenshots/ftw.gif)
 
 ## TOC
 
