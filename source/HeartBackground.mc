@@ -13,6 +13,8 @@ class HeartBackground extends UI.Drawable {
     private var yOffsetText = 24;
     private var locY;
     
+    private var currentHeartRate;
+    
     function initialize(params) {
         Drawable.initialize(params);
         
@@ -26,7 +28,9 @@ class HeartBackground extends UI.Drawable {
             return;
         }
         
-        var heartRateText = getHeartValueText(dc);
+        // save current data
+        currentHeartRate = getHeartTextValue(dc);
+        heartRateTextFontDim = dc.getTextDimensions(currentHeartRate, heartRateTextFont);
         
         var width = dc.getWidth() / 2;
         var height = dc.getHeight();
@@ -38,7 +42,7 @@ class HeartBackground extends UI.Drawable {
             locY = locY - 10;
         }
         
-        drawHeartText(dc, locX, locY, heartRateText);
+        drawHeartText(dc, locX, locY, currentHeartRate);
         
         // display heart rate curve
         var heartRateSize = 50;
@@ -48,11 +52,17 @@ class HeartBackground extends UI.Drawable {
         drawHeartRate(dc, locX, locY, locX + 15);
     }
     
-    // Partial update called every second by FTWView.onPartialUpdate(dc).
+    // Partial update called every second from FTWView.onPartialUpdate(dc).
     function onPartialUpdate(dc) {
+        if (!$.showHeartRate || !$.updatePartialHeartRate) {
+            return;
+        }
+        
         var clockTime = System.getClockTime();
         
-        if (clockTime.sec == 0 || clockTime.sec == 30) {
+        if ((clockTime.sec == 0 || clockTime.sec == 30) 
+            && currentHeartRate != getHeartTextValue(dc)) {
+            
             System.println("HeartBackground.onPartialUpdate");
 
             // add clip to clear only the heart rate text drawable part
@@ -66,8 +76,11 @@ class HeartBackground extends UI.Drawable {
             // clean the content of the clip area
             dc.clear();
             
-            var heartRateText = getHeartValueText(dc);
-            drawHeartText(dc, dc.getWidth() / 2, locY, heartRateText);
+            // save current data
+            currentHeartRate = getHeartTextValue(dc);
+            heartRateTextFontDim = dc.getTextDimensions(currentHeartRate, heartRateTextFont);
+            
+            drawHeartText(dc, dc.getWidth() / 2, locY, currentHeartRate);
         }
     }
     
@@ -81,25 +94,12 @@ class HeartBackground extends UI.Drawable {
             textCenter
         );
     }
-    private function getHeartValueText(dc) {
+    private function getHeartTextValue(dc) {
         var heartRate = AC.getActivityInfo().currentHeartRate;
-        
-        /*var hrIterator = ActivityMonitor.getHeartRateHistory(null, false);
-        if (hrIterator != null && heartRate == null) {
-            var previous = hrIterator.next();
-            if (previous != null) {
-                heartRate = previous.heartRate;
-            }
-        }*/
-        
         var value = "N/A";
         if (heartRate != null) {
             value = heartRate.toString();
         }
-        
-        // save the current text dimensions
-        heartRateTextFontDim = dc.getTextDimensions(value, heartRateTextFont);
-        
         return value;
     }
     

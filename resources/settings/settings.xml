@@ -33,6 +33,10 @@
         <settingConfig type="boolean" />
     </setting>
     
+    <setting propertyKey="@Properties.UpdatePartialHeartRate" title="@Strings.UpdatePartialHeartRate">
+        <settingConfig type="boolean" />
+    </setting>
+    
     <setting propertyKey="@Properties.FTWMode" title="@Strings.FTWMode">
         <settingConfig type="boolean" />
     </setting>

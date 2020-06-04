@@ -25,6 +25,7 @@ var backgroundThemeColor = Graphics.COLOR_DK_RED;
 var showMonthDate = true;
 var showDayDate = true;
 var showHeartRate = true;
+var updatePartialHeartRate = true;
 var showBatteryPercent = true;
 var FTWMode = true;
 var FTWModeMorningHour = 12;
@@ -223,6 +224,11 @@ class FTWView extends UI.WatchFace {
         var value = AP.getApp().getProperty("ShowHeartRate");
         if (value != null) {
             $.showHeartRate = value;
+        }
+        
+        value = AP.getApp().getProperty("UpdatePartialHeartRate");
+        if (value != null) {
+            $.updatePartialHeartRate = value;
         }
     }
     

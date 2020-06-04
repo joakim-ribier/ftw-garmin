@@ -33,6 +33,7 @@
     <string id="ShowDayDate">Afficher le jour courant</string>
     
     <string id="ShowHeartRate">Afficher le cardio (bpm)</string>
+    <string id="UpdatePartialHeartRate">Rafraîchir le bpm toutes les 30 s (au lieu de 1 m)</string>
     
     <string id="FTWMode">Activer le mode FTW / Ne ratez plus l'heure de l'apéro...</string>
     <string id="FTWModeMorningHour">FTW : Heure du matin</string>

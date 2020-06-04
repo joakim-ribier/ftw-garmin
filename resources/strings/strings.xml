@@ -42,6 +42,7 @@
     <string id="ShowDayDate">Show Day Date</string>
     
     <string id="ShowHeartRate">Show Heart Rate</string>
+    <string id="UpdatePartialHeartRate">Refresh heart rate every 30 s (instead of 1 m)</string>
     
     <string id="FTWMode">Enable FTW Mode / Never Miss Apero Time...</string>
     <string id="FTWModeMorningHour">FTW: Morning Hour</string>

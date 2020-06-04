@@ -10,6 +10,7 @@
     <property id="ShowDayDate" type="boolean">true</property>
     
     <property id="ShowHeartRate" type="boolean">true</property>
+    <property id="UpdatePartialHeartRate" type="boolean">true</property>
     
     <property id="FTWMode" type="boolean">true</property>
     <property id="FTWModeMorningHour" type="number">12</property>
