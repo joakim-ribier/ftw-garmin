@@ -45,7 +45,8 @@ class FTWView extends UI.WatchFace {
     private var themeColors = [
         Graphics.COLOR_DK_BLUE,
         Graphics.COLOR_DK_GREEN,
-        Graphics.COLOR_DK_RED
+        Graphics.COLOR_DK_RED,
+        Graphics.COLOR_ORANGE
     ];
     
     function initialize() {

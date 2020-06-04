@@ -33,6 +33,7 @@
     <string id="ThemeBlueDark">Blue (Dark)</string>
     <string id="ThemeRedDark">Red (Dark)</string>
     <string id="ThemeGreenDark">Green (Dark)</string>
+    <string id="ThemeOrange">Orange</string>
     
     <string id="BatteryLevelLow">Battery Level Low</string>
     <string id="ShowBatteryPercent">Show Battery Percent</string>
