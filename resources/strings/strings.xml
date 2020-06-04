@@ -35,18 +35,18 @@
     <string id="ThemeGreenDark">Green (Dark)</string>
     <string id="ThemeOrange">Orange</string>
     
-    <string id="BatteryLevelLow">Battery Level Low</string>
-    <string id="ShowBatteryPercent">Show Battery Percent</string>
+    <string id="BatteryLevelLow">Battery level low</string>
+    <string id="ShowBatteryPercent">Show battery percent</string>
     
-    <string id="ShowMonthDate">Show Month Date</string>
-    <string id="ShowDayDate">Show Day Date</string>
+    <string id="ShowMonthDate">Show month date</string>
+    <string id="ShowDayDate">Show day date</string>
     
-    <string id="ShowHeartRate">Show Heart Rate</string>
+    <string id="ShowHeartRate">Show heart rate</string>
     <string id="UpdatePartialHeartRate">Refresh heart rate every 30 s (instead of 1 m)</string>
     
-    <string id="FTWMode">Enable FTW Mode / Never Miss Apero Time...</string>
-    <string id="FTWModeMorningHour">FTW: Morning Hour</string>
-    <string id="FTWModeAfternoonHour">FTW: Afternoon Hour</string>
+    <string id="FTWMode">Enable FTW mode / Never miss apero time...</string>
+    <string id="FTWModeMorningHour">FTW: Morning hour</string>
+    <string id="FTWModeAfternoonHour">FTW: Afternoon hour</string>
     <string id="FTWModeMinutes">FTW: Minutes</string>
     <string id="FTWModeDuration">FTW: Duration (s)</string>
 </strings>
