@@ -20,14 +20,19 @@ Les appareils compatibles sont nombreux, voir [manifest.xml](https://github.com/
 
 Liste exhaustive des possibilités :
 
-* Changer la couleur du thème (bleu, rouge, vert)
-* Cacher/Afficher le jour courant
-* Cacher/Afficher le mois courant
-* Cacher/Afficher le pourcentage de batterie restant
-* Cacher/Afficher le cardio
+* Changer la couleur du thème (bleu, rouge, vert, orange)
+* Cacher / Afficher le jour courant
+* Cacher / Afficher le mois courant
+* Cacher / Afficher le pourcentage de batterie restant
+* Cacher / Afficher le cardio
 * Passer en mode FTW ("APERO TIME") `¯\_(ツ)_/¯`
 
 ## Version
+
+0.1.4
+
+* Ajout du thème "orange"
+* Mise à jour du BPM toutes les 30 secondes ou chaque minute
 
 0.1.3
 
