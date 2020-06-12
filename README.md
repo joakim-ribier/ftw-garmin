@@ -12,7 +12,7 @@ https://developer.garmin.com/connect-iq/overview/
 
 ## Projet
 
-"FTW" est un cadran configurable pour montre Garmin.
+"FTW" est un cadran configurable pour montre Garmin, disponible sur le [connect IQ | STORE](https://apps.garmin.com/fr-FR/apps/464f0da0-465b-4625-a54f-60061e05591c).
 
 Les appareils compatibles sont nombreux, voir [manifest.xml](https://github.com/joakim-ribier/ftw-garmin/blob/master/manifest.xml#L4).
 
